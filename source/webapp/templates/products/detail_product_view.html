@@ -1,17 +1,26 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <img src="..." class="card-img-top" alt="...">
+    {% if product.image %}
+    <br><img src="{{ product.image.url }}" width="200" height="200" alt="..."><br/>
+    {% else %}
+    <br><img src="..." width="200" height="200" alt="..."><br/>
+    {% endif %}
     <br/><h3>{{ product.product_name }}</h3><br/>
     <p>Описание: {{ product.description }}</p><br/>
-    <p><a href="#" style=" color : darkorange;
+    <p><a href="{% url 'webapp:product_review' product.pk %}" style=" color : darkorange;
     text-decoration: none"><strong style="color: darkorange">Отзывы: </strong></a></p>
     </p>
+    {% if perms.webapp.delete_product %}
     <p>
     <a href="{% url 'webapp:product_delete' product.pk %}" style="color : darkorange; text-decoration: none">Удалить</a>
     </p>
+    {% endif %}
+    {% if perms.webapp.change_product %}
     <p>
     <a href="{% url 'webapp:product_update' product.pk %}" style="color : darkorange; text-decoration: none">Изменить</a>
     </p>
+    {% endif %}
      <a href="{% url 'webapp:product_view' %}" style="color : darkorange; text-decoration: none">На главную</a>
 {% endblock %}
+{#class="card-img-top"#}

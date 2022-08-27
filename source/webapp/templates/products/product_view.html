@@ -9,7 +9,6 @@
             <div class="col-12 col-md-4 col-lg-4">
                 <div class="card mb-3">
                     <div class="card-body">
-                        <img src="..." class="card-img-top" alt="...">
                         <p class="card-text">Товар: {{ item.product_name  }}</p>
                         <p class="card-text">Категория: {{ item.get_category_display }}</p>
                         <a href="{% url 'webapp:product_detail' item.pk %}"

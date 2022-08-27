@@ -9,7 +9,7 @@ class Product(models.Model):
     category = models.CharField(max_length=30, choices=CHOICES, default=CHOICES[0][0],
                                 verbose_name='Категории')
     description = models.TextField(max_length=2000, null=True, blank=True, verbose_name='Описание')
-    image = models.ImageField(upload_to='images', null=True, blank=True, verbose_name='Картинка')
+    image = models.ImageField(upload_to='images', null=True, blank=True, default='default.png', verbose_name='Картинка')
 
     def __str__(self):
         return f"{self.id}. {self.product_name} : {self.category}"

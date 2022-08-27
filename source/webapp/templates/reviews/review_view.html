@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}Отзывы{% endblock %}
+
+{% block content %}
+    <br><h1>Отзывы</h1><br/>
+     <p><strong>Автор </strong>{{ reviews.author }}</p>
+    <p><strong>Описание </strong>{{ reviews.text_review }}</p>
+    <p><strong>Оценка </strong>{{ reviews.rating }}</p>
+    <p><strong>Время создания </strong> {{ reviews.created_at }}</p>
+{% endblock %}
