@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <img src="..." class="card-img-top" alt="...">
+    <br/><h3>{{ product.product_name }}</h3><br/>
+    <p>Описание: {{ product.description }}</p><br/>
+    <p><a href="#" style=" color : darkorange;
+    text-decoration: none"><strong style="color: darkorange">Отзывы: </strong></a></p>
+    </p>
+    <p>
+    <a href="{% url 'webapp:product_delete' product.pk %}" style="color : darkorange; text-decoration: none">Удалить</a>
+    </p>
+    <p>
+    <a href="{% url 'webapp:product_update' product.pk %}" style="color : darkorange; text-decoration: none">Изменить</a>
+    </p>
+     <a href="{% url 'webapp:product_view' %}" style="color : darkorange; text-decoration: none">На главную</a>
+{% endblock %}
